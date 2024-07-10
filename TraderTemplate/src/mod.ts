@@ -1,6 +1,6 @@
 import { DependencyContainer } from "tsyringe"
 
-import { IPreAkiLoadMod } from "@spt-aki/models/external/IPreAkiLoadMod"
+import { IPreSptLoadMod } from "@spt-aki/models/external/IPreSptLoadMod"
 import { IPostDBLoadMod } from "@spt-aki/models/external/IPostDBLoadMod"
 import { LogTextColor } from "@spt-aki/models/spt/logging/LogTextColor"
 import { ConfigTypes } from "@spt-aki/models/enums/ConfigTypes"
@@ -14,12 +14,12 @@ import * as baseJson from "../db/base.json"
 
 const modName = "TraderTemplate"
 
-class TraderTemplate implements IPreAkiLoadMod, IPostDBLoadMod {
+class TraderTemplate implements IPreSptLoadMod, IPostDBLoadMod {
 	private ref: References = new References()
 
 	constructor() {}
 
-	public preAkiLoad(container: DependencyContainer): void {
+	public preSptLoad(container: DependencyContainer): void {
 		this.ref.preAkiLoad(container)
 		const ragfair = this.ref.configServer.getConfig(ConfigTypes.RAGFAIR)
 		const traderConfig: ITraderConfig = this.ref.configServer.getConfig<ITraderConfig>(ConfigTypes.TRADER)
