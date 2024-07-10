@@ -18,7 +18,7 @@ export class TraderUtils {
 		const imageFilepath = `./${preSptModLoader.getModPath(modName)}res`
 
 		// Register a route to point to the profile picture - remember to remove the .jpg from it
-		imageRouter.addRoute(baseJson.avatar.replace(".jpg", ""), `${imageFilepath}/${traderImageName}`)
+		imageRouter.addRoute(baseJson.avatar.replace(".jpg", ".png"), `${imageFilepath}/${traderImageName}`)
 	}
 
 	/**
