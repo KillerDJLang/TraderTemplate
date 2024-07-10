@@ -1,5 +1,5 @@
-import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables"
-import { ITraderConfig } from "@spt-aki/models/spt/config/ITraderConfig"
+import { IDatabaseTables } from "@spt/models/spt/server/IDatabaseTables"
+import { ITraderConfig } from "@spt/models/spt/config/ITraderConfig"
 import { References } from "../Refs/References"
 import { TraderUtils } from "../Refs/Utils"
 
