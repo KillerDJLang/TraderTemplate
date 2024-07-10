@@ -20,7 +20,7 @@ class TraderTemplate implements IPreSptLoadMod, IPostDBLoadMod {
 	constructor() {}
 
 	public preSptLoad(container: DependencyContainer): void {
-		this.ref.preAkiLoad(container)
+		this.ref.preSptLoad(container)
 		const ragfair = this.ref.configServer.getConfig(ConfigTypes.RAGFAIR)
 		const traderConfig: ITraderConfig = this.ref.configServer.getConfig<ITraderConfig>(ConfigTypes.TRADER)
 		const traderUtils = new TraderUtils()
