@@ -1,35 +1,35 @@
 import { DependencyContainer } from "tsyringe"
 
-import { StaticRouterModService } from "@spt-aki/services/mod/staticRouter/StaticRouterModService"
-import { OnUpdateModService } from "@spt-aki/services/mod/onUpdate/OnUpdateModService"
-import { CustomItemService } from "@spt-aki/services/mod/CustomItemService"
-import { RagfairPriceService } from "@spt-aki/services/RagfairPriceService"
-import { ProbabilityHelper } from "@spt-aki/helpers/ProbabilityHelper"
-import { ProfileHelper } from "@spt-aki/helpers/ProfileHelper"
-import { TraderHelper } from "@spt-aki/helpers/TraderHelper"
-import { ItemHelper } from "@spt-aki/helpers/ItemHelper"
-import { BotHelper } from "@spt-aki/helpers/BotHelper"
-import { DatabaseServer } from "@spt-aki/servers/DatabaseServer"
-import { ConfigServer } from "@spt-aki/servers/ConfigServer"
-import { SaveServer } from "@spt-aki/servers/SaveServer"
-import { IDatabaseTables } from "@spt-aki/models/spt/server/IDatabaseTables"
-import { ILogger } from "@spt-aki/models/spt/utils/ILogger"
-import { HttpResponseUtil } from "@spt-aki/utils/HttpResponseUtil"
-import { ImporterUtil } from "@spt-aki/utils/ImporterUtil"
-import { RandomUtil } from "@spt-aki/utils/RandomUtil"
-import { HashUtil } from "@spt-aki/utils/HashUtil"
-import { JsonUtil } from "@spt-aki/utils/JsonUtil"
-import { VFS } from "@spt-aki/utils/VFS"
-import { BotController } from "@spt-aki/controllers/BotController"
-import { PreAkiModLoader } from "@spt-aki/loaders/PreAkiModLoader"
-import { ImageRouter } from "@spt-aki/routers/ImageRouter"
+import { StaticRouterModService } from "@spt/services/mod/staticRouter/StaticRouterModService"
+import { OnUpdateModService } from "@spt/services/mod/onUpdate/OnUpdateModService"
+import { CustomItemService } from "@spt/services/mod/CustomItemService"
+import { RagfairPriceService } from "@spt/services/RagfairPriceService"
+import { ProbabilityHelper } from "@spt/helpers/ProbabilityHelper"
+import { ProfileHelper } from "@spt/helpers/ProfileHelper"
+import { TraderHelper } from "@spt/helpers/TraderHelper"
+import { ItemHelper } from "@spt/helpers/ItemHelper"
+import { BotHelper } from "@spt/helpers/BotHelper"
+import { DatabaseServer } from "@spt/servers/DatabaseServer"
+import { ConfigServer } from "@spt/servers/ConfigServer"
+import { SaveServer } from "@spt/servers/SaveServer"
+import { IDatabaseTables } from "@spt/models/spt/server/IDatabaseTables"
+import { ILogger } from "@spt/models/spt/utils/ILogger"
+import { HttpResponseUtil } from "@spt/utils/HttpResponseUtil"
+import { ImporterUtil } from "@spt/utils/ImporterUtil"
+import { RandomUtil } from "@spt/utils/RandomUtil"
+import { HashUtil } from "@spt/utils/HashUtil"
+import { JsonUtil } from "@spt/utils/JsonUtil"
+import { VFS } from "@spt/utils/VFS"
+import { BotController } from "@spt/controllers/BotController"
+import { PreSptModLoader } from "@spt/loaders/PreSptModLoader"
+import { ImageRouter } from "@spt/routers/ImageRouter"
 
 export class References {
 	public modName: string
 	public debug: boolean
 
 	public container: DependencyContainer
-	public preAkiModLoader: PreAkiModLoader
+	public preSptModLoader: PreSptModLoader
 	public configServer: ConfigServer
 	public saveServer: SaveServer
 	public itemHelper: ItemHelper
@@ -54,9 +54,9 @@ export class References {
 	public botController: BotController
 	public httpResponse: HttpResponseUtil
 
-	public preAkiLoad(container: DependencyContainer): void {
+	public preSptLoad(container: DependencyContainer): void {
 		this.container = container
-		this.preAkiModLoader = container.resolve<PreAkiModLoader>("PreAkiModLoader")
+		this.preSptModLoader = container.resolve<PreSptModLoader>("PreSptModLoader")
 		this.imageRouter = container.resolve<ImageRouter>("ImageRouter")
 		this.configServer = container.resolve<ConfigServer>("ConfigServer")
 		this.saveServer = container.resolve<SaveServer>("SaveServer")
