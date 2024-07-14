@@ -16,7 +16,7 @@ export class TraderData {
 	public registerProfileImage() {
 		const imageFilepath = `./${this.ref.preAkiModLoader.getModPath(this.mod)}res`
 
-		this.ref.imageRouter.addRoute(baseJson.avatar.replace(".jpg", ".png"), `${imageFilepath}/TraderTemplate.jpg`)
+		this.ref.imageRouter.addRoute(baseJson.avatar.replace(".jpg", ""), `${imageFilepath}/TraderTemplate.jpg`)
 	}
 
 	public setupTraderUpdateTime() {
